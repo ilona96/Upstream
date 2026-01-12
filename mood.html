@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upstream - Як ти?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Logo -->
+        <div class="logo">
+            <span>Upstream</span>
+            <span>Church</span>
+        </div>
+
+        <!-- Step 1: Mood Selection -->
+        <div id="mood-selection" class="w-full">
+            <h1 class="text-center" style="margin-bottom: var(--spacing-sm);">Як ти сьогодні?</h1>
+            <p class="text-center" style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg);">Обери, що відгукується зараз</p>
+            
+            <div class="mood-grid">
+                <button class="mood-btn" onclick="selectMood('tired')">
+                    <span class="mood-icon">😮‍💨</span>
+                    <span>Втомлений</span>
+                </button>
+                <button class="mood-btn" onclick="selectMood('lonely')">
+                    <span class="mood-icon">🥀</span>
+                    <span>Самотній</span>
+                </button>
+                <button class="mood-btn" onclick="selectMood('anxious')">
+                    <span class="mood-icon">🌪️</span>
+                    <span>Тривожно</span>
+                </button>
+                <button class="mood-btn" onclick="selectMood('grateful')">
+                    <span class="mood-icon">✨</span>
+                    <span>Вдячний</span>
+                </button>
+                <button class="mood-btn" onclick="selectMood('searching')">
+                    <span class="mood-icon">🔍</span>
+                    <span>Шукаю</span>
+                </button>
+                <button class="mood-btn" onclick="selectMood('empty')">
+                    <span class="mood-icon">🫙</span>
+                    <span>Пусто</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 2: Message & Content (Hidden initially) -->
+        <div id="mood-result" class="hidden w-full fade-in">
+            <div class="card text-center">
+                <h2 id="result-title" style="margin-bottom: var(--spacing-md);"></h2>
+                <p id="result-text" style="margin-bottom: var(--spacing-lg); font-size: 1.1rem;"></p>
+                <div style="background: var(--color-bg-warm); padding: var(--spacing-md); border-radius: var(--radius-md); margin-bottom: var(--spacing-lg);">
+                    <p id="result-quote" style="font-style: italic; color: #555;"></p>
+                </div>
+                <button class="btn btn-outline" onclick="resetMood()" style="margin-top: var(--spacing-sm);">Обрати інше</button>
+            </div>
+
+            <div class="text-center" style="margin-top: var(--spacing-xl);">
+                <p style="margin-bottom: var(--spacing-md);">Хочеш дізнатися більше або потребуєш підтримки?</p>
+                <form class="contact-form" onsubmit="handleForm(event)">
+                    <input type="text" class="input-field" placeholder="Твоє ім'я (необов'язково)">
+                    <input type="text" class="input-field" placeholder="Телеграм або Інстаграм">
+                    <button type="submit" class="btn btn-primary">Надіслати</button>
+                </form>
+                <p id="form-feedback" class="hidden" style="color: green; margin-top: var(--spacing-sm);">Дякуємо! Ми зв'яжемось з тобою.</p>
+            </div>
+        </div>
+
+        <!-- Footer / Socials -->
+        <footer class="social-links">
+            <a href="https://www.instagram.com/upstream.church" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/upstreamchurch" target="_blank" class="social-icon"><i class="fab fa-telegram"></i></a>
+            <a href="https://youtube.com/@upstream.church" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
